@@ -10,11 +10,11 @@
       <a class="arrow" @click="moveNextYear">&raquo;</a>
     </div>
     <div class="weekdays">
-      <div class="weekday" v-for="weekday in weekdays" :key="weekday">
+      <div class="weekday" v-for="(weekday, index) in weekdays" :key="index">
         {{ weekday.label_3 }}
       </div>
     </div>
-    <div class="week" v-for="week in weeks" :key="week">
+    <div class="week" v-for="(week, index) in weeks" :key="index">
       <div
         class="day"
         :class="{
@@ -23,8 +23,8 @@
           selected: day.isSelected && !day.dragActive,
           dragged: day.isDragged,
         }"
-        v-for="day in week"
-        :key="day"
+        v-for="(day, index) in week"
+        :key="index"
         @click="$emit('selectDay', day)"
         @mouseenter="$emit('enterDay', day)"
         @mouseleave="$emit('leaveDay', day)"
