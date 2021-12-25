@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <Calendar /> -->
     <div class="calendar-layout">
       <component
         :is="datePicker"
@@ -52,17 +49,19 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import { _displayKeyOptions, _selectModeOptions } from "./calendardata";
 import Calendar from "./components/Calendar.vue";
-import singleDatePicker from "./components/single-date-picker.vue";
+import SingleDatePicker from "./components/single-date-picker.vue";
+import MultipleDatePicker from "./components/multiple-date-picker.vue";
+import DateRangePicker from './components/Date-range-picker.vue';
 
 export default {
   components: {
-    singleDatePicker: singleDatePicker,
-    Calendar: Calendar,
+    SingleDatePicker,
+    Calendar,
+    MultipleDatePicker,
+    DateRangePicker
   },
   data() {
     return {
-      singleDatePicker: singleDatePicker,
-      calendar: Calendar,
       displayKeyOptions: _displayKeyOptions,
       displayKey: _displayKeyOptions[1].value,
       selectModeOptions: _selectModeOptions,
@@ -76,11 +75,11 @@ export default {
     datePicker() {
       switch (this.selectMode) {
         case "single":
-          return this.singleDatePicker;
+          return SingleDatePicker;
         case "multiple":
-          return this.calendar;
+          return MultipleDatePicker;
         case "range":
-          return this.calendar;
+          return DateRangePicker;
         default:
           return "";
       }
@@ -97,8 +96,9 @@ export default {
 };
 </script>
 
-<style lang="sass">
-$themeColor: #ff7a58
+<style lang="sass">1324
+
+$themeColor: #123456
 
 $headerPadding: 0.5rem 1rem
 $headerBorderWidth: 1px
@@ -143,7 +143,7 @@ $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", 
   padding: 20px
 
 .calendar-layout
-  min-width: 400px
+  min-width: 600px
 
 .calendar
   display: flex

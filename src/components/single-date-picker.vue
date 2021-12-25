@@ -1,6 +1,3 @@
-<template lang="">
-  <div></div>
-</template>
 <script>
 import calendar from "./Calendar.vue";
 export default {

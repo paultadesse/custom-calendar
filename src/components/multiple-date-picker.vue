@@ -1,7 +1,5 @@
-<template lang="">
-  <div></div>
-</template>
 <script>
+import calendar from "./Calendar.vue";
 export default {
   created() {
     this.$on("configureDay", this.configureDay);
@@ -9,7 +7,7 @@ export default {
   },
   extends: calendar,
   props: {
-    value: { type: Array, default: [] },
+    value: { type: Array, default:()=>{} },
   },
   computed: {
     hasValues() {
